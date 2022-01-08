@@ -1,26 +1,55 @@
 import React from "react";
 import Page from "components/Page";
 import { useQuery } from "react-query";
+import Table from "components/Table";
 import { backendFetch } from "utils/api";
 
 function Home() {
-  const { isLoading, isError, refetch } = useQuery("heartbeat", () =>
-    backendFetch({ endpoint: "heartbeat/", omitToken: true })
+  const { data: teamData, isLoading, isError, refetch } = useQuery(
+    "teams",
+    () => backendFetch({ endpoint: "api/v1/teams/", omitToken: true })
   );
-  const Heartbeat = () => {
-    if (isLoading) return "Loading...";
-    if (isError) return "Error";
-    return "Thump";
-  };
+
+  const columns = React.useMemo(
+    () => [
+      {
+        Header: "",
+        accessor: "name",
+      },
+      {
+        Header: "Wins",
+        accessor: "record.wins",
+      },
+      {
+        Header: "Losses",
+        accessor: "record.losses",
+      },
+      {
+        Header: "OT",
+        accessor: "record.ot",
+      },
+      {
+        Header: "Points",
+        accessor: "record.points",
+      },
+      {
+        Header: "Games Played",
+        accessor: "record.gamesPlayed",
+      },
+      {
+        Header: "Goals For",
+        accessor: "record.goalsScored",
+      },
+      {
+        Header: "Goals Against",
+        accessor: "record.goalsAgainst",
+      },
+    ],
+    []
+  );
   return (
     <Page>
-      <div>Test Home Page</div>
-      <div>
-        <Heartbeat />
-      </div>
-      <button onClick={() => refetch({ stale: true })} type="submit">
-        Test Heartbeat
-      </button>
+      <Table data={teamData || []} columns={columns} />
     </Page>
   );
 }

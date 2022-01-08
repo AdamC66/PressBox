@@ -1,0 +1,22 @@
+.table {
+  width: 100%;
+  border-spacing: 1;
+}
+
+.table thead {
+  background: #c2c2c2;
+  padding: 8px;
+  border-bottom: 5px solid red;
+}
+.table th {
+  padding: 8px;
+}
+
+.table tr {
+  background: #c2c2c2;
+  padding: 8px;
+}
+
+.table td {
+  padding: 8px;
+}

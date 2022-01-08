@@ -26,7 +26,7 @@ module.exports = function(_env, argv) {
             options: {
               cacheDirectory: true,
               cacheCompression: false,
-              envName: isProduction ? "production" : "local",
+              envName: isProduction ? "production" : "development",
             },
           },
         },
@@ -91,11 +91,6 @@ module.exports = function(_env, argv) {
         template: path.resolve(__dirname, "public/index.html"),
         inject: true,
       }),
-      new webpack.DefinePlugin({
-        "process.env.NODE_ENV": JSON.stringify(
-          isProduction ? "production" : "local"
-        ),
-      }),
     ].filter(Boolean),
     optimization: {
       minimize: isProduction,
@@ -144,7 +139,6 @@ module.exports = function(_env, argv) {
       historyApiFallback: true,
       open: true,
       hot: true,
-      overlay: true,
     },
   };
 };
