@@ -1,9 +1,11 @@
 import React from "react";
 import Page from "components/Page";
+import TeamLogo from "components/TeamLogo";
 import { useQuery } from "react-query";
-import Table from "components/Table";
 import { backendFetch } from "utils/api";
-
+import { Link } from "react-router-dom";
+import Table from "components/Table";
+import classes from "./style.module.css";
 function Home() {
   const { data: teamData, isLoading, isError, refetch } = useQuery(
     "teams",
@@ -14,7 +16,18 @@ function Home() {
     () => [
       {
         Header: "",
-        accessor: "name",
+        id: "name",
+        width: 200,
+        accessor: (row) => ({ name: row.name, code: row.code }),
+        Cell: ({ value }) => (
+          <div className={classes.logoCell}>
+            <TeamLogo
+              code={value.code}
+              style={{ width: "24px", height: "auto", marginRight: "16px" }}
+            />
+            <Link to={`/teams/${value.code}/`}>{value.name}</Link>
+          </div>
+        ),
       },
       {
         Header: "Wins",
