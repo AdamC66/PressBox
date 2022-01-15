@@ -6,27 +6,24 @@ import TeamPage from "containers/TeamPage";
 
 import { QueryClient, QueryClientProvider } from "react-query";
 import Header from "components/Header";
-import { AuthProvider } from "context/AuthContext";
 import { ReactQueryDevtools } from "react-query/devtools";
 const queryClient = new QueryClient();
 
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <Router>
-          <Header />
-          <Switch>
-            <Route exact path="/teams/:teamCode/">
-              <TeamPage />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
-        </Router>
-        <ReactQueryDevtools initialIsOpen={false} />
-      </AuthProvider>
+      <Router>
+        <Header />
+        <Switch>
+          <Route exact path="/teams/:teamCode/">
+            <TeamPage />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </Router>
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 }

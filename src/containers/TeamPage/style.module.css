@@ -1,0 +1,14 @@
+.teamCard {
+  display: flex;
+  justify-content: space-evenly;
+  border: 1px solid grey;
+  margin: 8px;
+  padding: 8px;
+}
+
+.teamInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
