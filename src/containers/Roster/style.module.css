@@ -22,7 +22,7 @@
 
 .root {
   display: grid;
-  grid-template-columns: 60% 40%;
+  grid-template-columns: 80% 20%;
   justify-content: space-between;
 }
 
@@ -43,6 +43,7 @@
   align-items: flex-start;
   border: 1px solid gray;
   margin: 8px;
+  padding: 8px;
   overflow-y: auto;
   max-height: calc(100vh - 400px);
 }
