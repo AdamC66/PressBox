@@ -6,14 +6,13 @@ import TeamPage from "containers/TeamPage";
 
 import { QueryClient, QueryClientProvider } from "react-query";
 import Header from "components/Header";
-import { AuthProvider } from "context/AuthContext";
 import { ReactQueryDevtools } from "react-query/devtools";
 const queryClient = new QueryClient();
 
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <AuthProvider>
+      <div style={{ width: "100%", height: "100%" }}>
         <Router>
           <Header />
           <Switch>
@@ -25,8 +24,8 @@ function App() {
             </Route>
           </Switch>
         </Router>
-        <ReactQueryDevtools initialIsOpen={false} />
-      </AuthProvider>
+      </div>
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 }
