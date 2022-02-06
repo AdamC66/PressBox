@@ -22,6 +22,8 @@
 
 .root {
   display: grid;
+
+  margin: 8px auto;
   grid-template-columns: 80% 20%;
   justify-content: space-between;
 }
@@ -46,6 +48,7 @@
   padding: 8px;
   overflow-y: auto;
   max-height: calc(100vh - 400px);
+  background: var(--secondary-color);
 }
 
 .activeRoster {
@@ -53,6 +56,7 @@
   border: 1px solid gray;
   margin: 8px;
   padding: 8px;
+  background: var(--secondary-color);
 }
 
 .dropZone {

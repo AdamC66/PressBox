@@ -1,5 +1,7 @@
 import React from "react";
 import { useQuery } from "react-query";
+import Page from "components/Page";
+
 import { backendFetch } from "utils/api";
 import { useParams } from "react-router-dom";
 import TeamLogo from "components/TeamLogo";
@@ -24,7 +26,7 @@ function TeamPage() {
     COLORS[teamCode].secondary
   );
   return (
-    <div>
+    <Page className={classes.root}>
       <div className={classes.teamCard}>
         <TeamLogo code={teamCode} style={{ width: "200px", height: "auto" }} />
         <div className={classes.teamInfo}>
@@ -46,7 +48,7 @@ function TeamPage() {
         </div>
       </div>
       <Roster />
-    </div>
+    </Page>
   );
 }
 

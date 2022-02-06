@@ -4,6 +4,7 @@
   border: 1px solid grey;
   margin: 8px;
   padding: 8px;
+  background: var(--secondary-color);
 }
 
 .teamInfo {
@@ -11,4 +12,9 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+}
+
+.root {
+  background: var(--primary-color);
+  padding: 8px;
 }

@@ -12,17 +12,19 @@ const queryClient = new QueryClient();
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Router>
-        <Header />
-        <Switch>
-          <Route exact path="/teams/:teamCode/">
-            <TeamPage />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </Router>
+      <div style={{ width: "100%", height: "100%" }}>
+        <Router>
+          <Header />
+          <Switch>
+            <Route exact path="/teams/:teamCode/">
+              <TeamPage />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </Router>
+      </div>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );

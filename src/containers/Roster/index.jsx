@@ -223,7 +223,7 @@ function Roster() {
         <div className={classes.activeRoster}>
           {/* Forwards */}
           <div>
-            <button
+            {/* <button
               onClick={() => {
                 console.log({
                   forwards,
@@ -233,7 +233,7 @@ function Roster() {
               }}
             >
               Log Lines
-            </button>
+            </button> */}
             <h3>Forwards</h3>
             {/* Create 4 rows of 3 forward lines */}
             <div className={classes.forwardArea}>
